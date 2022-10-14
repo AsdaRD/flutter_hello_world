@@ -16,9 +16,9 @@ class _HelloWorldScreenState extends State<HelloWorldScreen> {
 
   void _addHelloWorld() {
     setState(() {
-      if (helloWorlds.length < 20) {
+      if (helloWorlds.length < 10) {
         helloWorlds.add(kHelloWorldTitle);
-        if (helloWorlds.length == 20) {
+        if (helloWorlds.length == 10) {
           floatingActionButtonIcon = kIconRemove;
         }
       } else {
@@ -32,18 +32,18 @@ class _HelloWorldScreenState extends State<HelloWorldScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
+    return Scaffold(
+      body: Center(
+        child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: helloWorlds,
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _addHelloWorld,
-          child: floatingActionButtonIcon,
-        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _addHelloWorld,
+        child: floatingActionButtonIcon,
       ),
     );
   }
